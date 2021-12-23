@@ -1,21 +1,23 @@
 package com.letscode.arrays.service;
 
 import com.letscode.arrays.entidades.Pessoa;
+import com.letscode.arrays.utils.Impressora;
 
 import java.util.Scanner;
 
 public class Calculadora {
 
     public static void calculaIdades() {
-        Pessoa[] pessoas = new Pessoa[4];
         Scanner scanPessoa = new Scanner(System.in);
+        Pessoa[] pessoas = new Pessoa[3];
+
 
         for (int i = 0; i < pessoas.length; i++) {
             pessoas[i] = new Pessoa();
 
-            System.out.print("Digite o nome: ");
+            Impressora.imprimirMensagemInserirNome(i);
             pessoas[i].setNome(scanPessoa.next());
-            System.out.print("Digite a idade: ");
+            Impressora.imprimirMensagemInserirIdade(i);
             pessoas[i].setIdade(scanPessoa.nextInt());
         }
 
@@ -36,9 +38,9 @@ public class Calculadora {
 
         float mediaIdade = (somaIdade / pessoas.length);
 
-        System.out.println("Maior idade: " + maiorIdade);
-        System.out.println("Menor idade: " + menorIdade);
-        System.out.println("Média de idade: " + mediaIdade);
+        Impressora.imprimirMensageMaiorIdade(maiorIdade);
+        Impressora.imprimirMensageMenorIdade(menorIdade);
+        Impressora.imprimirMensagemMediaIdade(mediaIdade);
     }
 
 }
